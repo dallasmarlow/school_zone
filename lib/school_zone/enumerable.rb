@@ -1,20 +1,14 @@
 module Enumerable
 
-  def each_in duration
-    duration = SchoolZone.interval *duration.flatten
+  def each_in interval
+    interval  = SchoolZone::Interval.new *interval.flatten
+    iteration = 0
 
     each do |object|
+      interval.checkpoint = Time.now
       yield object
-      sleep duration.to_f / self.count
-    end
-  end
-
-  def each_at frequency
-    frequency = SchoolZone.interval *frequency.flatten
-
-    each do |object|
-      yield object
-      sleep frequency
+      interval.adjust iteration
+      iteration += 1
     end
   end
 

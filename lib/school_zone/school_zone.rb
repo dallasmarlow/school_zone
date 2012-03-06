@@ -47,13 +47,3 @@ module SchoolZone
 
   end
 end
-
-
-    # %w[./school_zone benchmark].each {|l| require l}
-    # Benchmark.measure {
-    #   interval = SchoolZone::Interval.new 5, :seconds, 10 ** 5
-    #   interval.rate.times do |i|
-    #     interval.checkpoint = Time.now
-    #     interval.adjust i
-    #   end
-    # }
